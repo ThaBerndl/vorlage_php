@@ -3,9 +3,9 @@
 class DB
 {
     private $host = 'localhost';
-    private $dbname = "exampleDBName";
-    private $user = "user";
-    private $pwd = "password";
+    private $dbname = "sys";
+    private $user = "root";
+    private $pwd = "raspberry";
     public $pdo;
     public function __construct()
     {

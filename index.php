@@ -30,16 +30,19 @@
 <main class="container">
   <div class="bg-light p-5 rounded">
     <?php
-    include "page/DB.php";
-    include "page/functions.php";
+    require_once "page/DB.php";
+    require_once "page/functions.php";
     $db = new DB();
     if(isset($_GET['seite']))
     {
       switch($_GET['seite'])
       {
-        case 'ex1':
-          include 'page/ex1.php';
+        case 'home':
+          include 'page/home.php';
           break;
+          case 'ex1':
+            include 'page/ex1.php';
+            break;
 //        default:
 //          include 'page/home.php';
       }

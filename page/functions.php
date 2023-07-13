@@ -1,5 +1,5 @@
 <?php
-include "page/DB.php";
+require_once "page/DB.php";
 function makeTable($query, $coloured = null){
     try {
         $db = new DB();

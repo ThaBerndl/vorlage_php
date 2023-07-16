@@ -1,11 +1,10 @@
 <?php
 require_once "page/DB.php";
-function makeTable($query, $coloured = null){
+function makeTable($query, $valuearray){
     try {
         $db = new DB();
         $stmt = $db->pdo->prepare($query);
-        $stmt->execute();
-        //tabelle mit 'dynmaischen Spaltenbezeichnung' mittles meta-Daten
+        $stmt->execute($valuearray);
         $meta = array();
         echo '<table class="table">
           <tr>';
@@ -16,11 +15,7 @@ function makeTable($query, $coloured = null){
         }
         echo '</tr>';
         while ($row = $stmt->fetch(PDO::FETCH_NUM)){
-            if ($coloured != null && $row[1] == $coloured) {
-                echo "<tr class='table-success'>";
-            }else{
-                echo '<tr>';
-            }
+            echo '<tr>';
             foreach ($row as $r) {
                 echo '<td>'.$r.'</td>';
             }
